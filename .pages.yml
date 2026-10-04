@@ -1,0 +1,148 @@
+media:
+  input: images
+  output: images
+
+content:
+  - name: ksiazki
+    label: Książki
+    type: file
+    path: content/ksiazki.json
+    format: json
+    list: true
+    fields:
+      - name: tytul
+        label: Tytuł
+        type: string
+        required: true
+      - name: autorka
+        label: Autorka (imię i nazwisko – tak samo jak w zakładce Autorki)
+        type: string
+        required: true
+      - name: okladka
+        label: Okładka (JPG lub PNG, najlepiej min. 600 px szerokości)
+        type: image
+      - name: etykieta
+        label: Etykieta na okładce
+        type: select
+        options:
+          values: [Premiera, Nowość, Zapowiedź, Przedsprzedaż, Patronat]
+      - name: status
+        label: Status
+        type: select
+        required: true
+        options:
+          values:
+            - name: nadchodzaca
+              label: Nadchodząca premiera (zapowiedź)
+            - name: wydana
+              label: Już w sprzedaży
+      - name: data_premiery
+        label: Data premiery
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: opis_krotki
+        label: Krótki opis (1–2 zdania, widoczny na liście książek)
+        type: text
+      - name: opis
+        label: Pełny opis (pusta linia = nowy akapit)
+        type: text
+      - name: sklepy
+        label: Gdzie kupić
+        type: object
+        list: true
+        fields:
+          - name: nazwa
+            label: Nazwa sklepu (np. Empik)
+            type: string
+          - name: link
+            label: Link do książki w sklepie (musi zaczynać się od https://)
+            type: string
+            pattern:
+              regex: "^https://.+"
+              message: Link musi zaczynać się od https://
+      - name: material_rodzaj
+        label: Rodzaj materiału od autorki
+        type: select
+        options:
+          values: [Nieopublikowany fragment, Cytat, Rozdział, Strona]
+      - name: material
+        label: Treść materiału od autorki
+        type: text
+
+  - name: autorki
+    label: Autorki
+    type: file
+    path: content/autorki.json
+    format: json
+    list: true
+    fields:
+      - name: imie_nazwisko
+        label: Imię i nazwisko
+        type: string
+        required: true
+      - name: gatunek
+        label: Gatunek (np. Dark romance)
+        type: string
+      - name: zdjecie
+        label: Zdjęcie
+        type: image
+      - name: instagram
+        label: Instagram (sama nazwa, bez @)
+        type: string
+
+  - name: rozmowy
+    label: Rozmowy
+    type: file
+    path: content/rozmowy.json
+    format: json
+    list: true
+    fields:
+      - name: rodzaj
+        label: Rodzaj
+        type: select
+        options:
+          values: [Wywiad, Kulisy pisania, Ciekawostki]
+      - name: tytul
+        label: Tytuł
+        type: string
+        required: true
+      - name: data
+        label: Data
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: wstep
+        label: Krótki wstęp
+        type: text
+      - name: tresc
+        label: Pełna treść (pusta linia = nowy akapit)
+        type: text
+
+  - name: strona
+    label: Ustawienia strony
+    type: file
+    path: content/strona.json
+    format: json
+    fields:
+      - name: haslo_baner
+        label: Hasło na banerze (strona główna)
+        type: text
+      - name: cytat
+        label: Cytat na stronie głównej (bez cudzysłowów)
+        type: text
+      - name: o_nas
+        label: Tekst „O nas” (pusta linia = nowy akapit)
+        type: text
+      - name: email
+        label: E-mail kontaktowy
+        type: string
+      - name: instagram
+        label: Instagram strony (sama nazwa, bez @)
+        type: string
+      - name: administratorka
+        label: Polityka prywatności – imię i nazwisko administratorki danych
+        type: string
+      - name: okres_przechowywania
+        label: Polityka prywatności – jak długo przechowujemy zgłoszenia (np. 12 miesięcy)
+        type: string
