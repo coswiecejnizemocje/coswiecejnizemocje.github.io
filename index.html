@@ -27,6 +27,7 @@
       <a href="#/ksiazki" data-nav="ksiazki">Książki</a>
       <a href="#/autorki" data-nav="autorki">Autorki</a>
       <a href="#/nowosci" data-nav="nowosci">Nowości</a>
+      <a href="#/patroni" data-nav="patroni">Patroni medialni</a>
       <a href="#/rozmowy" data-nav="rozmowy">Rozmowy</a>
       <a href="#/dla-autorek" data-nav="dla-autorek">Dla autorek</a>
       <a href="#/o-nas" data-nav="o-nas">O nas</a>
@@ -56,6 +57,7 @@
       <a href="#/autorki"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 20a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM9 34c1-7 5.5-10 11-10s10 3 11 10z"/></svg><b>Autorki</b><span>Poznaj kobiety, które tworzą</span></a>
       <a href="#/nowosci"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35c-6 0-10-4-10-9 0-6 6-9 6-16 4 3 5 6 5 9 2-1 3-3 3-5 4 3 6 7 6 12 0 5-4 9-10 9z"/></svg><b>Nowości</b><span>Premiery, zapowiedzi, przedsprzedaże</span></a>
       <a href="#/dla-autorek"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M15 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM27 18a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM5 32c1-6 5-9 10-9s9 3 10 9zM24 23c5-1 10 2 11 8h-8"/></svg><b>Dla autorek</b><span>Dołącz do naszego projektu</span></a>
+      <a href="#/patroni"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 17v6h5l10 7V10l-10 7H6zM27 14c2 1.5 3 3.5 3 6s-1 4.5-3 6M31 10c3.5 2.5 5 6 5 10s-1.5 7.5-5 10"/></svg><b>Patroni medialni</b><span>Ci, którzy mówią o naszych książkach</span></a>
       <a href="#/rozmowy"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8h26v18H18l-7 6v-6H7z"/></svg><b>Rozmowy</b><span>Wywiady, kulisy pisania, ciekawostki</span></a>
     </div>
   </section>
@@ -108,8 +110,8 @@
 <!-- AUTORKI -->
 <section data-view="autorki" class="wrap page" hidden>
   <h2 class="script">Autorki</h2>
-  <p class="lead">Wybierz autorkę, aby zobaczyć jej książki.</p>
-  <div class="author-grid" id="author-grid"></div>
+  <p class="lead">Poznaj autorki, ich historie i miejsca, w których możesz je śledzić.</p>
+  <div class="profile-list" id="author-list"></div>
 </section>
 
 <!-- NOWOŚCI -->
@@ -121,6 +123,14 @@
   <h3 class="eyebrow">Niedawne premiery</h3>
   <div class="row-list" id="recent"></div>
   <p class="empty" id="no-recent" hidden>Brak premier do wyświetlenia.</p>
+</section>
+
+<!-- PATRONI MEDIALNI -->
+<section data-view="patroni" class="wrap page" hidden>
+  <h2 class="script">Patroni medialni</h2>
+  <p class="lead">Bookstagramerki, blogerki i twórcy, którzy objęli patronatem książki naszych autorek.</p>
+  <div class="profile-list" id="patron-list"></div>
+  <p class="empty" id="no-patrons" hidden>Wkrótce przedstawimy tu naszych patronów.</p>
 </section>
 
 <!-- ROZMOWY -->
@@ -144,7 +154,17 @@
       <li>linki do sklepów, w których można kupić książkę.</li>
     </ul>
   </div>
-  <a class="btn btn-solid" id="submit-mail" href="#">Wyślij zgłoszenie <span aria-hidden="true">→</span></a>
+  <fieldset class="card question" id="ebook-q">
+    <legend class="eyebrow">E-book dla patronów</legend>
+    <p class="q-text">Czy w ramach współpracy z patronami jesteś chętna/chętny na wysłanie e-booka tylko dla patronów?</p>
+    <div class="radios">
+      <label><input type="radio" name="ebook" value="TAK"> Tak</label>
+      <label><input type="radio" name="ebook" value="NIE"> Nie</label>
+    </div>
+    <p class="muted">Jeśli nie chcesz wysyłać e-booka, to jest to jak najbardziej w porządku. Nie jest to wymagane.</p>
+    <p class="q-error" id="ebook-error" role="alert" hidden>Zaznacz odpowiedź Tak albo Nie.</p>
+  </fieldset>
+  <button type="button" class="btn btn-solid" id="submit-mail">Wyślij zgłoszenie <span aria-hidden="true">→</span></button>
   <p class="muted">Przycisk otwiera Twoją pocztę z gotowym szablonem. Adres: <span data-field="email"></span></p>
   <p class="small">Wysyłając zgłoszenie, przekazujesz swoje dane kontaktowe administratorce strony w celu rozpatrzenia zgłoszenia. Szczegóły w <a href="#/polityka-prywatnosci">polityce prywatności</a>.</p>
 </section>
@@ -195,7 +215,7 @@
 
 <dialog id="book-dialog" aria-labelledby="bd-title">
   <div class="bd">
-    <img id="bd-cover" alt="">
+    <div class="bd-coverbox"><img id="bd-cover" alt=""></div>
     <div class="bd-body">
       <div class="bd-head">
         <div>

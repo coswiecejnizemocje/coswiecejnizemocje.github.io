@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var data = { books: [], authors: [], talks: [], site: {} };
+  var data = { books: [], authors: [], patrons: [], talks: [], site: {} };
   var state = { author: null, query: '', lastView: '#/' };
   var MONTHS = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
 
@@ -89,9 +89,31 @@
       slug: slug(b.tytul)
     };
   }
+  // Linki do profili: [{ serwis: 'Instagram', link: 'https://…' }] (+ stare pole "instagram")
+  function normLinks(list, igHandle) {
+    var out = [], seen = {};
+    var add = function (name, url) {
+      if (!url || seen[url]) return;
+      seen[url] = true;
+      out.push({ name: name || 'Strona www', url: url });
+    };
+    var ig = safeHandle(igHandle);
+    if (ig) add('Instagram', 'https://www.instagram.com/' + ig + '/');
+    (Array.isArray(list) ? list : []).forEach(function (l) {
+      if (l) add(str(l.serwis), safeUrl(l.link));
+    });
+    return out;
+  }
   function normAuthor(a) {
     if (!a || !str(a.imie_nazwisko)) return null;
-    return { name: str(a.imie_nazwisko), genre: str(a.gatunek), photo: a.zdjecie, instagram: safeHandle(a.instagram), slug: slug(a.imie_nazwisko) };
+    return {
+      name: str(a.imie_nazwisko), genre: str(a.gatunek), photo: a.zdjecie, desc: str(a.opis),
+      links: normLinks(a.linki, a.instagram), slug: slug(a.imie_nazwisko)
+    };
+  }
+  function normPatron(p) {
+    if (!p || !str(p.nazwa)) return null;
+    return { name: str(p.nazwa), genre: str(p.kim_jest), photo: p.zdjecie, desc: str(p.opis), links: normLinks(p.linki), slug: slug(p.nazwa) };
   }
   function normTalk(t) {
     if (!t || !str(t.tytul)) return null;
@@ -128,8 +150,24 @@
       'Materiał do publikacji (fragment / cytat / rozdział / strona):\nLinki do sklepów:\nOkładka: w załączniku (JPG/PNG)\n\n' +
       'Oświadczam, że mam prawa do przesłanych materiałów i zgadzam się na ich publikację na stronie Coś więcej niż emocje.';
     var sub = $('#submit-mail');
-    if (mail) sub.href = 'mailto:' + mail + '?subject=' + encodeURIComponent('Zgłoszenie książki – [TYTUŁ]') + '&body=' + encodeURIComponent(body);
-    else sub.hidden = true;
+    if (!mail) { sub.hidden = true; return; }
+    sub.addEventListener('click', function () {
+      var choice = $('input[name="ebook"]:checked');
+      var q = $('#ebook-q');
+      if (!choice) {
+        $('#ebook-error').hidden = false;
+        q.classList.add('invalid');
+        q.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      $('#ebook-error').hidden = true;
+      q.classList.remove('invalid');
+      var full = body.replace('\n\nOświadczam', '\nE-book tylko dla patronów: ' + choice.value + '\n\nOświadczam');
+      location.href = 'mailto:' + mail + '?subject=' + encodeURIComponent('Zgłoszenie książki – [TYTUŁ]') + '&body=' + encodeURIComponent(full);
+    });
+    $all('input[name="ebook"]').forEach(function (r) {
+      r.addEventListener('change', function () { $('#ebook-error').hidden = true; $('#ebook-q').classList.remove('invalid'); });
+    });
   }
 
   // ---------- książki ----------
@@ -214,11 +252,74 @@
     link.appendChild(el('span', 'a-genre', g));
     return link;
   }
+  var ICONS = {
+    instagram: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM17.5 6.5h0',
+    tiktok: 'M14 3v12a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 3 2.5 5 6 5',
+    facebook: 'M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z',
+    youtube: 'M6.5 5.5h11a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-11a4 4 0 0 1-4-4v-5a4 4 0 0 1 4-4zM10 9v6l5-3z',
+    www: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z'
+  };
+  function icon(name) {
+    var key = name.toLowerCase().replace(/\s.*/, '');
+    var d = ICONS[key] || ICONS.www;
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', d);
+    svg.appendChild(path);
+    return svg;
+  }
+  function socials(links) {
+    var box = el('div', 'socials');
+    links.forEach(function (l) {
+      var a = el('a');
+      a.href = l.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.appendChild(icon(l.name));
+      a.appendChild(document.createTextNode(l.name));
+      box.appendChild(a);
+    });
+    return box;
+  }
+  function profile(p, idPrefix, booksLink) {
+    var art = el('article', 'profile');
+    art.id = idPrefix + p.slug;
+    art.appendChild(img(p.photo, p.name));
+    var body = el('div', 'profile-body');
+    if (p.genre) body.appendChild(el('p', 'eyebrow', p.genre));
+    body.appendChild(el('h3', null, p.name));
+    if (p.desc) body.appendChild(el('p', 'desc', p.desc));
+    if (p.links.length) body.appendChild(socials(p.links));
+    if (booksLink) body.appendChild(booksLink);
+    art.appendChild(body);
+    return art;
+  }
   function renderAuthors() {
-    var mini = $('#authors-mini'), grid = $('#author-grid');
-    mini.textContent = ''; grid.textContent = '';
-    data.authors.slice(0, 4).forEach(function (a) { mini.appendChild(authorCard(a, false)); });
-    data.authors.forEach(function (a) { grid.appendChild(authorCard(a, true)); });
+    var mini = $('#authors-mini'), list = $('#author-list');
+    mini.textContent = ''; list.textContent = '';
+    data.authors.slice(0, 4).forEach(function (a) {
+      var c = authorCard(a, false);
+      c.href = '#/autorki/' + a.slug;
+      mini.appendChild(c);
+    });
+    data.authors.forEach(function (a) {
+      var n = data.books.filter(function (b) { return b.author === a.name; }).length;
+      var more = null;
+      if (n) {
+        more = el('a', 'more', 'Książki autorki (' + n + ') →');
+        more.href = '#/ksiazki/autorka/' + a.slug;
+      }
+      list.appendChild(profile(a, 'autorka-', more));
+    });
+  }
+  function renderPatrons() {
+    var list = $('#patron-list');
+    list.textContent = '';
+    data.patrons.forEach(function (p) { list.appendChild(profile(p, 'patron-', null)); });
+    $('#no-patrons').hidden = data.patrons.length > 0;
   }
   function rowItem(b) {
     var r = coverButton(b, 'row-item');
@@ -301,7 +402,7 @@
   }
 
   // ---------- nawigacja ----------
-  var VIEWS = ['home', 'ksiazki', 'autorki', 'nowosci', 'rozmowy', 'dla-autorek', 'o-nas', 'polityka-prywatnosci'];
+  var VIEWS = ['home', 'ksiazki', 'autorki', 'nowosci', 'patroni', 'rozmowy', 'dla-autorek', 'o-nas', 'polityka-prywatnosci'];
   function showView(name) {
     $all('[data-view]').forEach(function (v) { v.hidden = v.getAttribute('data-view') !== name; });
     $all('[data-nav]').forEach(function (a) {
@@ -333,7 +434,10 @@
     }
     showView(name);
     state.lastView = location.hash || '#/';
-    window.scrollTo(0, 0);
+    var target = (name === 'autorki' || name === 'patroni') && parts[1]
+      ? document.getElementById((name === 'autorki' ? 'autorka-' : 'patron-') + parts[1]) : null;
+    if (target) target.scrollIntoView();
+    else window.scrollTo(0, 0);
   }
 
   // ---------- start ----------
@@ -352,8 +456,9 @@
 
     Promise.all([
       getJSON('content/ksiazki.json'), getJSON('content/autorki.json'),
-      getJSON('content/rozmowy.json'), getJSON('content/strona.json')
+      getJSON('content/rozmowy.json'), getJSON('content/strona.json'), getJSON('content/patroni.json')
     ]).then(function (r) {
+      data.patrons = (Array.isArray(r[4]) ? r[4] : []).map(normPatron).filter(Boolean);
       data.books = (Array.isArray(r[0]) ? r[0] : []).map(normBook).filter(Boolean);
       data.authors = (Array.isArray(r[1]) ? r[1] : []).map(normAuthor).filter(Boolean);
       data.talks = (Array.isArray(r[2]) ? r[2] : []).map(normTalk).filter(Boolean);
@@ -361,6 +466,7 @@
       renderSite();
       renderCarousel();
       renderAuthors();
+      renderPatrons();
       renderNews();
       renderTalks();
       window.addEventListener('hashchange', route);
