@@ -87,9 +87,65 @@ content:
       - name: zdjecie
         label: Zdjęcie
         type: image
+      - name: opis
+        label: Opis autorki (pusta linia = nowy akapit)
+        type: text
+      - name: linki
+        label: Linki do profili (Instagram, TikTok, Facebook…)
+        type: object
+        list: true
+        fields:
+          - name: serwis
+            label: Serwis
+            type: select
+            options:
+              values: [Instagram, TikTok, Facebook, YouTube, Strona www, Inne]
+          - name: link
+            label: Link (musi zaczynać się od https://)
+            type: string
+            pattern:
+              regex: "^https://.+"
+              message: Link musi zaczynać się od https://
       - name: instagram
-        label: Instagram (sama nazwa, bez @)
+        label: Instagram – stare pole (lepiej dodać link w „Linki do profili”)
         type: string
+
+  - name: patroni
+    label: Patroni medialni
+    type: file
+    path: content/patroni.json
+    format: json
+    list: true
+    fields:
+      - name: nazwa
+        label: Nazwa patrona (np. nazwa profilu lub imię)
+        type: string
+        required: true
+      - name: kim_jest
+        label: Kim jest (np. Bookstagram, Blog książkowy, BookTok)
+        type: string
+      - name: zdjecie
+        label: Zdjęcie lub logo
+        type: image
+      - name: opis
+        label: Opis (pusta linia = nowy akapit)
+        type: text
+      - name: linki
+        label: Linki do profili (Instagram, TikTok, Facebook…)
+        type: object
+        list: true
+        fields:
+          - name: serwis
+            label: Serwis
+            type: select
+            options:
+              values: [Instagram, TikTok, Facebook, YouTube, Strona www, Inne]
+          - name: link
+            label: Link (musi zaczynać się od https://)
+            type: string
+            pattern:
+              regex: "^https://.+"
+              message: Link musi zaczynać się od https://
 
   - name: rozmowy
     label: Rozmowy
