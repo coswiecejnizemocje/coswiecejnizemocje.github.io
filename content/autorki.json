@@ -4,5 +4,16 @@
     "gatunek": "Mafia, romance,romantasy",
     "zdjecie": "images/download.jpg",
     "instagram": "karolina_autorka"
+  },
+  {
+    "imie_nazwisko": "Kamila Nowicka",
+    "zdjecie": "images/836869387_2275559873284509_1059823347207909786_n.jpg",
+    "opis": "Jestem rodowitą Zielonogórzanką, od prawie 20 lat mieszkającą w malowniczej Norwegii. Żoną wspaniałego męża i mamą trójki dzieci (dwóch dorosłych synów i nastolatki). Właścicielką trzech psów i jednego kota. \nFascynują mnie ludzkie historie, relacje międzyludzkie i emocje, które przeżywamy w codziennym życiu. \nKsiążki kocham od zawsze. O napisaniu swojej marzyłam od dawna, a teraz, mając więcej czasu, postanowiłam realizować to pragnienie. Uwielbiam powieści romantyczne, obyczajowe, a także książki związane z rozwojem osobistym. \nRelaksuję się słuchając muzyki. Mój gust muzyczny jest tak kolorowy, że ciężko stwierdzić jaki gatunek lubię najbardziej. \nKocham piec ciasta. Przez jakiś czas prowadziłam pracownię tortów. Teraz słodkościami uszczęśliwiam już tylko rodzinkę. \nZ natury jestem trochę introwertyczką, otaczającą się gronem wspaniałych przyjaciół. \nMam nadzieję, że moje historie poruszą wasze serca.",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/kamila.nowicka.pisze?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+      }
+    ]
   }
 ]
