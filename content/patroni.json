@@ -1,9 +1,18 @@
 [
   {
-    "nazwa": "[NAZWA PATRONA]",
+    "nazwa": "Jouliettka 🩷  ",
     "kim_jest": "Bookstagram",
-    "zdjecie": "",
-    "opis": "[KILKA ZDAŃ O PATRONIE – CO CZYTA, CO RECENZUJE, DLACZEGO WARTO GO ŚLEDZIĆ]",
-    "linki": []
+    "zdjecie": "images/juliettka.png",
+    "opis": "Czytam przede wszystkim dla emocji i dokładnie takich książek szukam. Romansów, które wywołują motyle w brzuchu, historii, które łamią serce, bohaterów, którzy doprowadzają mnie do szału, i tych momentów, przez które mówię sobie „jeszcze tylko jeden rozdział”… a później orientuję się, że jest środek nocy.  \nNa swoim profilu @jouliettka dzielę się przede wszystkim szczerymi recenzjami romansów, erotyków i dark romance. Nie polecam wszystkiego jak leci, jeśli coś mnie zachwyca, mówię o tym głośno, ale jeśli czegoś mi zabrakło, również o tym powiem. Właśnie ta szczerość jest dla mnie najważniejsza.  \nKsiążki odkryłam na dobre dopiero w dorosłym życiu i od tamtej pory stały się moją odskocznią, sposobem na odpoczynek i całkiem sporą częścią mojego świata. Dziś nie tylko czytam, ale również tworzę książkowe treści, współpracuję z autorami i wydawnictwami oraz obejmuję patronatem historie, w które naprawdę wierzę.\nChcę pokazywać książki tak, żebyś po kilku zdaniach wiedziała, czy to historia dla Ciebie. Bez nadęcia i bez udawania, za to z emocjami, humorem i czasem odrobiną pikanterii. 🌶️  \nBo dla mnie książka to nigdy nie jest tylko okładka i opis. Najważniejsze jest to, co zostaje w Tobie po przeczytaniu ostatniej strony.\n",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/jouliettka"
+      },
+      {
+        "serwis": "TikTok",
+        "link": "https://www.tiktok.com/404?fromUrl=/jouliettka"
+      }
+    ]
   }
 ]
