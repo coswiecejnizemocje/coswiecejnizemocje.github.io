@@ -46,5 +46,17 @@
         "link": "https://www.instagram.com/w_szelestach_papieru?stkn=cGZ0a3JsNTJrdnFn"
       }
     ]
+  },
+  {
+    "nazwa": "books_dreams_",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/kasia.jpg",
+    "opis": "Kasia  to pełna pasji i pozytywnej energii miłośniczka książek. Studiuje sprzedaż i marketing oraz psychologię. Poza literaturą uwielbia narty i jazdę konną. Jest również animatorką czasu wolnego, a praca z dziećmi daje jej ogromną radość.",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/book__dreams_/"
+      }
+    ]
   }
 ]
