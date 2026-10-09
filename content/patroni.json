@@ -58,5 +58,35 @@
         "link": "https://www.instagram.com/book__dreams_/"
       }
     ]
+  },
+  {
+    "nazwa": "dwie.ofiary.booktooka",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/2 ofiary.jpg",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/dwie.ofiary.booktoka/"
+      }
+    ]
+  },
+  {
+    "nazwa": "Werka.and.books",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/werka.jpg",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/werka.and.books?igsh=N25uazlydjg0aDhx"
+      },
+      {
+        "serwis": "TikTok",
+        "link": "https://www.tiktok.com/@fajer_werka?_t=ZN-8yoPG3ibV3e&_r=1"
+      },
+      {
+        "serwis": "YouTube",
+        "link": "https://youtube.com/@werka1409?si=7raJhdve01yzHTYZ"
+      }
+    ]
   }
 ]
