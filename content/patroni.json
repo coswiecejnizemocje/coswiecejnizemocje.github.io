@@ -48,30 +48,6 @@
     ]
   },
   {
-    "nazwa": "books_dreams_",
-    "kim_jest": "Bookstagram",
-    "zdjecie": "images/kasia.jpg",
-    "opis": "Kasia  to pełna pasji i pozytywnej energii miłośniczka książek. Studiuje sprzedaż i marketing oraz psychologię. Poza literaturą uwielbia narty i jazdę konną. Jest również animatorką czasu wolnego, a praca z dziećmi daje jej ogromną radość.",
-    "linki": [
-      {
-        "serwis": "Instagram",
-        "link": "https://www.instagram.com/book__dreams_/"
-      }
-    ]
-  },
-  {
-    "nazwa": "dwie.ofiary.booktooka",
-    "kim_jest": "Bookstagram",
-    "zdjecie": "images/2 ofiary.jpg",
-    "opis": "Jowi i Kasia. Dwie przyjaciółki dzielące miłość do zwierząt, blind boxów i książek. Im mniej moralnych tym lepszych 😈 \n\nCzytamy dużo, czytamy dla siebie a ostatnio i dla was by podzielić się naszym zdaniem na temat aktualnych pozycji. Głównie fantastyka, kryminały i dark romanse. \n\nObie cierpimy na zakupocholizm a wieczne \"nie kupię kolejnej książki, dopóki nie przeczytam tych co mam\" to kłamstwo, którym karmimy się niemal codziennie.",
-    "linki": [
-      {
-        "serwis": "Instagram",
-        "link": "https://www.instagram.com/dwie.ofiary.booktoka/"
-      }
-    ]
-  },
-  {
     "nazwa": "Werka.and.books",
     "kim_jest": "Bookstagram",
     "zdjecie": "images/werka.jpg",
@@ -98,6 +74,22 @@
       {
         "serwis": "Instagram",
         "link": "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=stfpz8x"
+      }
+    ]
+  },
+  {
+    "nazwa": "Magdalena Żurowska ",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/910879204_1457854302433651_4046017278713764334_n.jpg",
+    "opis": "Prowadzę profile na Instagramie i TikToku z czystej miłości do książek, pięknych wydań i wciągających historii – najpierw jako recenzentka i dumnie wspierająca patronka, a prywatnie... po prostu mol książkowy.\n​Na co dzień nie tylko pochłaniam książki, ale też sama przelewam słowa na papier – jestem autorką książki dla dzieci! Poza czytaniem uwielbiam wyciszać się przy układaniu puzzli, rywalizować w grach planszowych i karcianych, a czasem – kiedy nachodzi mnie wena – tworzę świeczki lub inne małe dzieła DIY.",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/zurowskam_rozczytanawksiazkach?mdxt=MTAyenllNjg3NTdxMg%3D%3D"
+      },
+      {
+        "serwis": "TikTok",
+        "link": "https://www.tiktok.com/@ksiazkolubica"
       }
     ]
   }
