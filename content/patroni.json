@@ -92,5 +92,25 @@
         "link": "https://www.tiktok.com/@ksiazkolubica"
       }
     ]
+  },
+  {
+    "nazwa": "Magdalena Jackowska ",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/909929186_1074900048932327_3275287732208439378_n.jpg",
+    "opis": "Kobieta ,singielka ,którą czytanie książek postawiło na nogi ,czytam różne gatunki, zmagam się z chorobą a wirtualny świat i ludzie tam poznani pomagają, są tak po prostu.",
+    "linki": [
+      {
+        "serwis": "Facebook",
+        "link": "https://www.facebook.com/magdalena.jackowska.946"
+      },
+      {
+        "serwis": "TikTok",
+        "link": "https:// www.tiktok./ wieczorne.czytanie"
+      },
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/wieczorne_czytanie_magdalena/"
+      }
+    ]
   }
 ]
