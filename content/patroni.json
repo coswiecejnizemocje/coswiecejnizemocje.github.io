@@ -112,5 +112,21 @@
         "link": "https://www.instagram.com/wieczorne_czytanie_magdalena/"
       }
     ]
+  },
+  {
+    "nazwa": "Patrycja ",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/905017880_1010624718756763_3767873227292975342_n.jpg",
+    "opis": "Książki to mój mały wielki świat, który pachnie papierem i historiami. Czytam, recenzuję, polecam.",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/halyna_and_books/"
+      },
+      {
+        "serwis": "TikTok",
+        "link": "https://www.tiktok.com/@halyna_and_books"
+      }
+    ]
   }
 ]
