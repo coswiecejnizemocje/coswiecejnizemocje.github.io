@@ -48,5 +48,24 @@
         "link": "https://www.instagram.com/katarzyna_oz/"
       }
     ]
+  },
+  {
+    "imie_nazwisko": "Beata Stefaniak",
+    "zdjecie": "images/768619532_18275168614294064_2554691787188341859_n.jpg",
+    "opis": "Często pisze do szuflady. Przygodę z publikowaniem swoich utworów rozpoczęła na platformie Wattpad, gdzie stawiała pierwsze kroki jako autorka. Jej pasja do pisania zaowocowała wydaniem dwóch książek: „Intryga chodzi w szpilkach” oraz „Szpilki w cieniu zbrodni”.\n\nKobieta z ogromną energią, mama dwóch wspaniałych córek – Natalii i Emilii. W wolnych chwilach pielęgnuje swoje sportowe hobby, jakim jest bieganie. Jej życiowe motto brzmi: „Nie stawaj na drodze do swojego zwycięstwa”.\n\n",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/beata_stefaniak_autorka_/"
+      },
+      {
+        "serwis": "Facebook",
+        "link": "https://www.facebook.com/profile.php?id=61565742253219"
+      },
+      {
+        "serwis": "Inne",
+        "link": "https://lubimyczytac.pl/autor/280234/beata-stefaniak"
+      }
+    ]
   }
 ]
