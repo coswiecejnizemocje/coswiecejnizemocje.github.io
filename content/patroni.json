@@ -140,5 +140,25 @@
         "link": "https://www.instagram.com/autorkamiedzywersami/"
       }
     ]
+  },
+  {
+    "nazwa": "Syreny też czytają",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/916021375_2193263484873391_4983762932598713034_n-2.png",
+    "opis": "Cześć! Jestem Agnieszka, książkoholiczka z głową pełną pomysłów i słabością do historii, które wywołują całą lawinę emocji! ❤️ Na moim bookstagramie znajdziecie szczere recenzje, kreatywne posty i mnóstwo czytelniczych inspiracji. Uwielbiam odkrywać nowych autorów, wspierać ich twórczość i pokazywać, że książki zasługują na coś więcej niż tylko kilka słów oceny. A jeśli lubicie rozmawiać o literaturze bez nadęcia, za to z humorem i odrobiną syreniego szaleństwa, rozgośćcie się w moim podwodnym świecie! 🩵",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/syreny_tez_czytaja/  "
+      },
+      {
+        "serwis": "Inne",
+        "link": "https://lubimyczytac.pl/profil/2649477/syreny_tez_czytaja"
+      },
+      {
+        "serwis": "Inne",
+        "link": "https://www.goodreads.com/user/show/194096622-agnieszka  https://nakanapie.pl/syreny.tez.czytaja"
+      }
+    ]
   }
 ]
