@@ -128,5 +128,17 @@
         "link": "https://www.tiktok.com/@halyna_and_books"
       }
     ]
+  },
+  {
+    "nazwa": "Autorka między wierszami",
+    "kim_jest": "Bookstagram",
+    "zdjecie": "images/916366283_18122806732806915_3222589213834696039_n.jpg",
+    "opis": "Kobieta z ogromną energią, mama dwóch wspaniałych córek – Natalii i Emilii. W wolnych chwilach pielęgnuje swoje sportowe hobby, jakim jest bieganie. Jej życiowe motto brzmi: „Nie stawaj na drodze do swojego zwycięstwa”.",
+    "linki": [
+      {
+        "serwis": "Instagram",
+        "link": "https://www.instagram.com/autorkamiedzywersami/"
+      }
+    ]
   }
 ]
